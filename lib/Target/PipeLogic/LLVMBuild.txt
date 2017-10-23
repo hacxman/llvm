@@ -1,0 +1,28 @@
+[common]
+subdirectories = AsmParser InstPrinter Disassembler MCTargetDesc TargetInfo
+
+[component_0]
+type = TargetGroup
+name = PipeLogic
+parent = Target
+has_asmparger = 1
+has_asmprinter = 1
+has_disassembler = 1
+has_jit = 1
+
+[component_1]
+type = Library
+name = PipeLogicCodeGen
+parent = PipeLogic
+required_libraries =
+ AsmPrinter
+ CodeGen
+ Core
+ MC
+ Support
+ Target
+ SelectionDAG
+ PipeLogicASMPrinter
+ PipeLogicDesc
+ PipeLogicInfo
+add_to_library_groups = PipeLogic
